@@ -20,7 +20,7 @@ class Person {
 abstract class House {
   protected door: boolean;
   protected key: Key;
-  protected tenants: Person[];
+  protected tenants: Person[] = [];
 
   public comeIn(person: Person) {
     if (this.door) this.tenants.push(person);
@@ -36,7 +36,7 @@ class MyHouse extends House {
   }
 
   public openDoor(key: Key) {
-    if (key === this.key) this.door = true;
+    if (key.getSignature() === this.key.getSignature()) this.door = true;
   }
 }
 
